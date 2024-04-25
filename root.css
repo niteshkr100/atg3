@@ -1,0 +1,133 @@
+/* Font style import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* root for css variable declaration */
+:root {
+    --font: 16px 'Roboto', sans-serif;
+    --body-background: #252525;
+    --hover-color:#40A9FF;
+    --border-radius: 2px;
+    --disabled-background-color: #969696;
+    --disabled-text-color: #585858;
+    --align: center;
+
+    /* Input */
+    --input-text-color: #e0e0e0;
+    --input-padding: 10px 35px;
+    --input-border: 1px solid #8b8b8b;
+    --input-hover: 1px solid var(--hover-color);
+    --input-focus: 1px solid #1890FF;
+    --input-focus-shadow: 0px 0px 4px 0px #1890ff80;
+    --input-disabled-border: 1px solid var(--disabled-background-color);
+    --icon-padding: 0 0 0 10px;
+
+    /* Loader */
+    --loader-border: 2px solid white;
+    --loader-margin: 0 8px 0 10px;
+
+    /* Button */
+    --btn-padding: 11px 29px 11px 0;
+    --btn-color: #097eeb;
+    --btn-text-color: #f7f7f7;
+    --btn-margin: 0 0 0 4px;
+    --btn-focused-color: #096DD9;
+}
+
+/* all */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: var(--font);
+    background-color: var(--body-background);
+    transition: all 0.2s;
+}
+.main-container {
+    display: flex;
+    align-items: var(--align);
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+/* Input field */
+input {
+    width: 350px;
+    padding: var(--input-padding);
+    border: var(--input-border);
+    color: var(--input-text-color);
+    caret-color: var(--hover-color);
+    border-radius: var(--border-radius);
+}
+input:hover {
+    border: var(--input-hover);
+}
+input:focus {
+    outline: none;
+    border: var(--input-focus);
+    box-shadow: var(--input-focus-shadow);
+}
+input:disabled {
+    background: var(--disabled-background-color)!important;
+    color: var(--disabled-text-color);
+    border: var(--input-disabled-border);
+    cursor: not-allowed;
+}
+
+/* Icon */
+.user-icon {
+    position: absolute;
+    margin: var(--icon-padding);
+}
+
+/* Submit button */
+.btn {
+    border: none;
+    display: flex;
+    align-items: var(--align);
+    padding: var(--btn-padding);
+    background-color: var(--btn-color);
+    color: var(--btn-text-color);
+    border-radius: var(--border-radius);
+    margin: var(--btn-margin);
+}
+.btn:hover {
+    background-color: var(--hover-color);
+}
+.btn:focus {
+    background-color: var(--btn-focused-color);
+}
+.btn:disabled {
+    background: var(--disabled-background-color)!important;
+    color: var(--disabled-text-color);
+    cursor: not-allowed;
+}
+
+/* loader */
+.loader {
+    width: 14px;
+    height: 14px;
+    border: var(--loader-border);
+    margin: var(--loader-margin);
+    background-color: transparent;
+    display: inline-block;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    border-bottom-color: transparent;
+    visibility: hidden;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+@media (max-width: 600px) {
+    input {
+        width: 220px;
+    }
+}
